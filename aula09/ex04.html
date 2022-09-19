@@ -19,9 +19,13 @@
     <h1>Iniciando estudos DOM</h1>
     <p>Aqui vai o resultado</p>
     <p>Aprendendo usa o <strong>DOM</strong>EM JAVASCRIPT</p>
-    <div>Clique em mim</div>
+    <div id="cliq">Clique em mim</div>
     <Script>
-        window.document
+         var p1 = window.document.getElementsByTagName('p')[0]
+         p1.style.color = 'black'
+         var d = window.document.getElementById('cliq')
+         d.innerText='bem vindo'
+         d.style.color='black'
     </Script>
     
 </body>
