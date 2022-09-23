@@ -15,7 +15,7 @@ function contar () {
 
         if (p <=0){
             window.alert('Passo Invalido!considerando passo 1 ')
-            p=1
+            p = 1
         }
         if (i < f){
             //contagem crecente
