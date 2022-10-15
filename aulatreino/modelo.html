@@ -5,47 +5,68 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modelo de Exercício</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
-    <header>
-        <h1>Gestão Financeira</h1>
+    <main>
+        <div class="resume">
+            <div>
+                Entradas:R$
+                <span class="incomes">0.00</span>
+            </div>
+            <div>
+                Saída:R$ 
+                <span class="expense">0.00</span>
+            </div>
+            <div>
+                Total:R$ 
+                <SPan class="total"> 0.00</SPan>
 
-    </header>
-
-    <section onclick="dados()">
-        <div id="dados">
-            <p>Entradas: <input type="number" name="n1" id="txtn1"> <input type="button" value="Adicionar"></p>
-
-            <p>Compras: <input type="number" name="n2" id="txtn2"> <input type="button" value="Adicionar" ></p>
-
-            <p>Cartão de Credito: <input type="number" name="cartão" id="txtca"> <input type="button" value="Adicionar"></p>
-
-            <p>Boletos: <input type="number" name="boletos" id="txtb"> <input type="button" value="Adicionar"></p>
-
-            <p>Saidas: <input type="number" name="saidas" id="txts"><input type="button" value="Adicionar"></p>
-
-            <br> <br><select name="flista" id="flista" size="6"></select>
-            <br> <input type="button" value="finalizar">
+            </div>
             
 
         </div>
 
-        <div id="saldo">
-            <p>Saldo: <input type="text" name="Saldo" id="fsaldo"> </p>
-            
-        </div id="gastos">
-            <p> Gastos: <input type="text" name="Gastos" id="fgastos"></p>
-        <div>
+        <div class="newItem">
+            <div class="divDesc">
+                <label for="desc">Descrição</label>
+                <input type="text" id="desc" />
+
+            </div>
+            <div class="divAmount">
+                <label for="amount">Valor</label>
+                <input type="number" id="amount">
+             </div>
+
+            <div class="divType">
+                <label for="type">Tipo</label>
+                <select id="type">
+                    <option>Entradas</option>
+                    <option>Saída</option>
+                </select>
+            </div>
+            <button id="btnNew">Incluir</button>
+        </div>
+        <div class="divTable">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Descrição</th>
+                        <th class="columnAmount">Valor</th>
+                        <th class="columnType">Tipo</th>
+                        <th class="columnAction"></th>
+                    </tr>
+                </thead>
+            </table>
+            <tbody>
+
+            </tbody>
 
         </div>
 
-    </section>
+    </main>
 
-    <footer>
-        <p>&copy;;CursoemVideos</p>
-
-    </footer>
     <script src="script.js"></script>
 
     

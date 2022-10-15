@@ -1,13 +1,26 @@
-function dados (){
-    var n1 = document.getElementById("txtn1")
-    var n2 = document.getElementById("txtn2")
-    var cartão = document.getElementById("txtn3")
-    var boletos = document.getElementById("txtn4")
-    var saidas = document.getElementById("txtn5")
-    var saldo = document.getElementById("saldo")
-    var gastos = document.getElementById("gastos")
-    var dados []
-    
+const tbody = document.querySelector("tbody");
+const descItem = document.querySelector("#desc");
+const amount = document.querySelector("#amount");
+const type = document.querySelector("#type");
+const btnNew = document.querySelector("#btnNew");
 
-    
+const incomes = document.querySelector(".incomes");
+const expenses = document.querySelector(".expenses");
+const total = document.querySelector(".total");
+
+let items;
+ 
+function loadItens (){
+    items = getItensBD();
+    tbody.innerHTML ="";
+    items.forEach((items, index) =>{
+        insertItem(item, index);
+    });
+
 }
+
+const getItensBD = () => JSON.parse(localStorage.getItem("db_items")) ?? [];
+const setItensBD = () =>
+   localStorage.setItem("db_items",JSON.stringify(items));
+
+loadItens();
