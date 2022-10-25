@@ -10,6 +10,24 @@ const total = document.querySelector(".total");
 
 let items;
 
+btnNew.onclik =() => {
+    if(descItem.value ==="" || amount.value ==="" || type.value ===""){
+        return alert("Preencha todos os campo!");
+    }
+    items.push({
+        desc:descItem.value,
+        amount:Math.abs(amount.value).toFixed(2),
+        type:type.value,
+    });
+
+    setItensBD();
+
+    loadItens();
+
+   descItem.value="";
+    amount.value="";
+}
+
 function insertItem(index){
     items.splice(index,1);
     setItensBD();
@@ -42,6 +60,30 @@ function loadItens (){
         insertItem(item, index);
     });
 
+   getTotal();
+}
+function getTotal(){
+    const amountIncomes =items
+     .filter((item) => JSON.type === "Entrada")
+     .map((transaction) =>Number(transaction.amount));
+
+    const amountExpenses = items
+     .filter((item) =>item.type === "Saída")
+     .map((transaction) => Number(transaction.amount));
+
+    const totalIncomes = amountIncomes
+     .reduce((acc, cur) => acc + cur, 0)
+     .toFixed(2);
+
+    const totalExpenses = Math.abs(
+        amountExpenses.reduce((acc , cur) => acc + cur ,0)
+    ).toFixed(2);
+
+    const totalItems = (totalIncomes - totalExpenses).toFixed(2);
+
+    incomes.innerHTML=totalIncomes;
+    expenses.innerHTML=totalExpenses;
+    total.innerHTML=totalItems;
 }
 
 const getItensBD = () => JSON.parse(localStorage.getItem("db_items")) ?? [];
